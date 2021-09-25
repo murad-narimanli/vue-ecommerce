@@ -1,7 +1,7 @@
 import iziToast from 'izitoast'// https://github.com/dolce/iziToast
 import VueNotifications from 'vue-notifications'
 
-function toast({title, message, type, timeout, cb}) {
+function toast({title, message, type, timeout}) {
     if (type === VueNotifications.types.warn) type = 'warning'
     return iziToast[type]({title, message, timeout})
 }
