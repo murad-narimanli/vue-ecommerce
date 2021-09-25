@@ -73,13 +73,7 @@ body {
     object-fit: contain;
   }
 }
-@media (max-width: 768px) {
-  .card-image {
-    &.cart{
-      height: 150px;
-    }
-  }
-}
+
 
 .credit-card {
   width: 370px !important;
@@ -143,5 +137,20 @@ body {
   .card-brand {
     top: 20px !important;
     right: 61px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-image {
+    &.cart{
+      height: 150px;
+    }
+  }
+}
+@media (max-width: 450px) {
+  .credit-card {
+    .card-brand {
+      right: 32px !important;
+    }
   }
 }
