@@ -1,0 +1,147 @@
+@import "mixins";
+@import "variables";
+@import "extends";
+
+body {
+  background: $mainColor;
+}
+
+.logo {
+  height: 30px;
+}
+.btn-mainColor{
+  background:$mainColor;
+}
+.nav-item {
+  &.active {
+    a {
+      color: $mainColor !important;
+    }
+  }
+}
+
+.headImage {
+  width: 100%;
+  height: 250px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.z-index {
+  z-index: 2;
+}
+
+.line-clamp {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+}
+
+
+.line-1 {
+  word-break: break-all;
+  -webkit-line-clamp: 1;
+  -moz-line-clamp: 1;
+  -ms-line-clamp: 1;
+  -o-line-clamp: 1;
+}
+
+
+.line-2 {
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+  -moz-line-clamp: 2;
+  -ms-line-clamp: 2;
+  -o-line-clamp: 2;
+}
+
+.card-image {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
+  padding: 10px;
+  &.cart{
+    padding: 5px;
+    height: 50px;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+@media (max-width: 768px) {
+  .card-image {
+    &.cart{
+      height: 150px;
+    }
+  }
+}
+
+.credit-card {
+  width: 370px !important;
+  background: #2a9e44 !important;
+  overflow: hidden;
+  .front, .back {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .front {
+    transition: 0.1s ease-in-out;
+    opacity: 1;
+    z-index: 2;
+    background-image: url('../img/card-img.svg');
+    img[alt~="Brand"] {
+      display: none;
+    }
+  }
+  &.flip-cc {
+    .front {
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+      z-index: 0 !important;
+    }
+    .back {
+      backface-visibility: unset !important;
+    }
+  }
+  .back {
+    background-image: url('../img/card-back.svg');
+  }
+  .card-number {
+    height: 40px !important;
+    top: 110px !important;
+  }
+  .card-cvc {
+    width: 60px !important;
+    right: 166px !important;
+    background: transparent !important;
+    color: black;
+  }
+  .card-exp {
+    top: 150px !important;
+    right: 51px !important;
+  }
+  .card-holder {
+    top: 150px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    word-break: break-all;
+    -webkit-line-clamp: 1;
+    -moz-line-clamp: 1;
+    -ms-line-clamp: 1;
+    -o-line-clamp: 1;
+    word-break: inherit;
+  }
+  .card-brand {
+    top: 20px !important;
+    right: 61px !important;
+  }
+}

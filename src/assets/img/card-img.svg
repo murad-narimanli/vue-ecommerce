@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="312px" height="188px" viewBox="0 0 312 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 59 (101010) - https://sketch.com -->
+    <title>1218AF19-034E-4445-9ADD-51182EA38866</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="192.272604%" gradientTransform="translate(0.500000,0.500000),scale(0.602564,1.000000),rotate(149.297829),translate(-0.500000,-0.500000)" id="radialGradient-1">
+            <stop stop-color="#76BC21" offset="0%"></stop>
+            <stop stop-color="#026937" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="36.7886616%" y1="40.4393328%" x2="100%" y2="82%" id="linearGradient-2">
+            <stop stop-color="#EEEEEE" offset="0%"></stop>
+            <stop stop-color="#D8D8D8" offset="100%"></stop>
+        </linearGradient>
+        <path d="M6.651,31.885 L6.651,21.882 L0,21.882 L0,21.122 L6.651,21.122 L6.651,10.363 L0,10.363 L0,9.604 L6.651,9.604 L6.651,0 L7.41,0 L7.41,9.604 L13.003,9.604 C13.858,6.87 16.367,4.869 19.367,4.816 L19.367,0 L20.126,0 L20.126,4.869 C22.896,5.131 25.169,7.03 25.977,9.604 L32.136,9.604 L32.136,0 L32.895,0 L32.895,9.604 L39.997,9.604 L39.997,10.363 L35.963,10.363 L35.963,21.122 L39.997,21.122 L39.997,21.882 L32.895,21.882 L32.895,31.885 L32.136,31.885 L32.136,21.882 L26.136,21.882 C25.486,24.711 23.08,26.847 20.126,27.127 L20.126,31.885 L19.367,31.885 L19.367,27.18 C16.181,27.124 13.528,24.877 12.841,21.882 L7.41,21.882 L7.41,31.885 L6.651,31.885 Z M35.205,21.122 L35.205,10.363 L26.192,10.363 C26.27,10.777 26.319,11.2 26.319,11.634 C26.319,13.227 25.753,14.764 24.718,15.998 C25.753,17.234 26.319,18.77 26.319,20.362 C26.319,20.623 26.27,20.87 26.242,21.122 L35.205,21.122 Z M19.489,26.434 C22.837,26.434 25.561,23.71 25.561,20.362 C25.561,18.849 24.982,17.389 23.935,16.254 L23.695,15.998 L23.935,15.742 C24.982,14.607 25.561,13.149 25.561,11.634 C25.561,8.286 22.837,5.563 19.489,5.563 C16.14,5.563 13.417,8.286 13.417,11.634 C13.417,13.149 13.995,14.607 15.043,15.742 L15.279,15.998 L15.043,16.254 C13.995,17.389 13.417,18.849 13.417,20.362 C13.417,23.71 16.14,26.434 19.489,26.434 Z M12.736,21.122 C12.708,20.87 12.658,20.623 12.658,20.362 C12.658,18.77 13.224,17.234 14.259,15.998 C13.224,14.764 12.658,13.227 12.658,11.634 C12.658,11.2 12.708,10.777 12.785,10.363 L7.41,10.363 L7.41,21.122 L12.736,21.122 Z" id="path-3"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Card-details-v2-#1---wide-screen" transform="translate(-400.000000, -370.000000)">
+            <g id="Group-9" transform="translate(360.000000, 144.000000)">
+                <g id="Group-6-Copy-2" transform="translate(40.000000, 226.000000)">
+                    <g id="Group-7">
+                        <rect id="Mask" fill="url(#radialGradient-1)" fill-rule="nonzero" x="0" y="0" width="312" height="188" rx="7.84800003"></rect>
+                        <g id="Rectangle-+-Rectangle-Copy-5-+-Rectangle-Copy-+-Rectangle-Copy-2-+-Rectangle-Copy-3-+-Rectangle-Copy-4-Mask" transform="translate(32.000000, 48.000000)">
+                            <rect id="Mask" fill="url(#linearGradient-2)" x="0" y="0" width="40" height="32" rx="6"></rect>
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <use id="Clip-2" fill="#979CA8" xlink:href="#path-3"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
