@@ -22,6 +22,7 @@
     "izitoast": "^1.4.0",
     "moment": "^2.29.1",
     "node-sass": "^6.0.1",
+    "serve-static": "^1.14.1",
     "vue": "^2.6.14",
     "vue-ccard": "^1.0.6",
     "vue-notifications": "^1.0.2",
