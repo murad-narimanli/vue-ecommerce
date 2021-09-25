@@ -1,6 +1,10 @@
 {
   "name": "testask",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.16.0",
+    "yarn": "1.22.10"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
