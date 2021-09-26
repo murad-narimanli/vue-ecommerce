@@ -29,10 +29,11 @@
             <div class="col-xl-7 animated slideInUp">
               <b-form @submit="onSubmit">
                 <div class="row">
-                  <div class="col-12">
+                  <div class="col-md-6">
                     <b-form-group>
                       <b-form-input
                           v-model="cc.number"
+                          ref="number"
                           class="mb-3 shadow-sm"
                           type="text"
                           :state="error.number"
@@ -41,28 +42,7 @@
                       />
                     </b-form-group>
                   </div>
-                  <div class="col-12">
-                    <b-form-group>
-                      <b-form-input
-                          v-model="cc.holder"
-                          class="mb-3 shadow-sm"
-                          type="text"
-                          :state="error.holder"
-                          placeholder="Surname,Name"
-                      />
-                    </b-form-group>
-                  </div>
-                  <div class="col-md-6 ">
-                    <b-form-datepicker
-                        placeholder="Choose a date"
-                        class="mb-3 shadow-sm"
-                        :date-format-options="{ year: '2-digit', month: '2-digit', day: undefined }"
-                        locale="en"
-                        :state="error.exp"
-                        v-mask="'##/##'"
-                        @input="dateDisabled($event)"
-                    ></b-form-datepicker>
-                  </div>
+
                   <div class="col-md-6">
                     <b-form-group>
                       <b-form-input
@@ -72,12 +52,45 @@
                           id="cvc"
                           class="mb-3 shadow-sm"
                           type="text"
+                          ref="cvc"
                           :state="error.cvc"
                           v-mask="'###'"
                           placeholder="CVC"
                       />
                     </b-form-group>
                   </div>
+                  <div class="col-md-12">
+                    <b-form-group>
+                      <b-form-input
+                          v-model="cc.holder"
+                          ref="holder"
+                          class="mb-3 shadow-sm"
+                          type="text"
+                          :state="error.holder"
+                          placeholder="Surname,Name"
+                      />
+                    </b-form-group>
+                  </div>
+                  <div class="col-md-12">
+                    <b-form-datepicker
+                        placeholder="Choose a date"
+                        class="mb-3 shadow-sm"
+                        menu-class="w-100"
+                        calendar-width="100%"
+                        selected-variant="success"
+                        :reset-button="true"
+                        reset-value="''"
+                        reset-button-variant="success"
+                        nav-button-variant="success"
+                        :date-format-options="{ year: '2-digit', month: '2-digit', day: undefined }"
+                        locale="en"
+                        ref="exp"
+                        :state="error.exp"
+                        v-mask="'##/##'"
+                        @input="dateDisabled($event)"
+                    ></b-form-datepicker>
+                  </div>
+
                   <div class="col-12">
                     <button type="submit" class="btn w-100 btn-success">Pay</button>
                   </div>
@@ -125,6 +138,9 @@ export default {
       price:undefined
     };
   },
+  mounted() {
+    console.log(this)
+  },
   beforeMount() {
     this.count = localStorage.getItem('count');
     this.price = localStorage.getItem('price');
@@ -132,6 +148,13 @@ export default {
   methods: {
     dateDisabled(e) {
       this.cc.exp = moment(e).format('MM/YY')
+    },
+    focusRef(ref) {
+      this.$nextTick(() => {
+        this.$nextTick(() => {
+          (ref.$el || ref).focus()
+        })
+      })
     },
     validate() {
       this.res = 0
@@ -159,15 +182,18 @@ export default {
   watch: {
     "cc.number"(val) {
       this.error.number = (!!val && val.length >= 19)
+      this.error.number && this.focusRef(this.$refs.cvc)
     },
     "cc.holder"(val) {
       this.error.holder = !!val
+      this.error.holder && this.focusRef(this.$refs.exp)
     },
     "cc.exp"(val) {
       this.error.exp = !!val
     },
     "cc.cvc"(val) {
       this.error.cvc = (!!val && val.length >= 3)
+      this.error.cvc && this.focusRef(this.$refs.holder)
     },
   },
 };
