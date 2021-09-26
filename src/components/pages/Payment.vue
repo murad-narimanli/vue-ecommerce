@@ -139,7 +139,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this)
+   this.focusRef(this.$refs.number)
   },
   beforeMount() {
     this.count = localStorage.getItem('count');
@@ -186,11 +186,9 @@ export default {
     },
     "cc.holder"(val) {
       this.error.holder = !!val
-      this.error.holder && this.focusRef(this.$refs.exp)
     },
     "cc.exp"(val) {
       this.error.exp = !!val
-      this.error.exp && this.focusRef(this.$refs.button)
     },
     "cc.cvc"(val) {
       this.error.cvc = (!!val && val.length >= 3)
