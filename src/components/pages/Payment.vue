@@ -92,7 +92,7 @@
                   </div>
 
                   <div class="col-12">
-                    <button type="submit" class="btn w-100 btn-success">Pay</button>
+                    <button ref="button" type="submit" class="btn w-100 btn-success">Pay</button>
                   </div>
                 </div>
               </b-form>
@@ -190,6 +190,7 @@ export default {
     },
     "cc.exp"(val) {
       this.error.exp = !!val
+      this.error.exp && this.focusRef(this.$refs.button)
     },
     "cc.cvc"(val) {
       this.error.cvc = (!!val && val.length >= 3)
