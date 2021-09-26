@@ -27,7 +27,8 @@
     "vue-ccard": "^1.0.6",
     "vue-notifications": "^1.0.2",
     "vue-router": "^3.5.2",
-    "vue-the-mask": "^0.11.1"
+    "vue-the-mask": "^0.11.1",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

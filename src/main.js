@@ -3,7 +3,7 @@ import App from './App.vue'
 import VueRouter from "vue-router"
 import {routes} from "./routes";
 import {BootstrapVue, IconsPlugin} from 'bootstrap-vue'
-
+import {store} from "@/store/store";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'izitoast/dist/css/iziToast.min.css'
@@ -29,5 +29,6 @@ const router = new VueRouter({
 new Vue({
     el: '#app',
     router,
+    store,
     render: h => h(App),
 }).$mount('#app')

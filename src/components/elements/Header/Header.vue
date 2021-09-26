@@ -35,7 +35,7 @@
                   active-class="active"
                   exact
                   to="/checkout">
-                <a class="nav-link">Checkout</a>
+                <a class="nav-link">Checkout <span class="text-warning">{{count}}</span> </a>
               </router-link>
               <router-link
                   tag="li"
@@ -56,3 +56,17 @@
   </div>
 </template>
 
+
+<script>
+  export default {
+    name: "Header",
+    computed:{
+      count(){
+        return this.$store.state.count
+      }
+    },
+    created() {
+      this.$store.state.count = localStorage.getItem("count")
+    }
+  }
+</script>

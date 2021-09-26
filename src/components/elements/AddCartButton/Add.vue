@@ -27,6 +27,7 @@ export default {
       console.log(price)
       count ++
       localStorage.setItem('count', count)
+      this.$store.state.count = count
       let arr = JSON.parse(localStorage.getItem('cart'))
       if (arr){
         let obj = {...this.post}

@@ -176,7 +176,8 @@ export default {
       let numb = 0
       arr.length > 0 && arr.forEach((s)=>{numb += s[key]})
       this[key] = round ? this.roundUp(numb ,3)  : numb
-      localStorage.setItem(key , round ? this.roundUp(numb ,3)  : numb)
+      localStorage.setItem(key , round ? this.roundUp(numb ,3)  : numb);
+      !round ? this.$store.state.count = numb : null
     },
     getRightDataCommon(arr){
       this.getRightData(arr , 'count' , false)
