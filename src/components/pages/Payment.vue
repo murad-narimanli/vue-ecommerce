@@ -1,5 +1,5 @@
 <template>
-  <div class="container animated slideInUp mt-5">
+  <div class="container animated fadeIn mt-5">
     <div class="row">
       <div class="col-12 p-5 shadow rounded bg-white">
         <h3 class="mb-4 fw-bold">Payment</h3>
@@ -13,7 +13,7 @@
             You have {{count}} products and its costs {{price}}$
           </div>
         </div>
-        <div id="payment">
+        <div class="mt-5" id="payment">
           <div class="row mb-3 ">
             <div class="col-xl-5">
               <div class="d-flex justify-content-xl-start justify-content-center">
