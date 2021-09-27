@@ -26,6 +26,7 @@
 <script>
 import * as Https from "@/services/http-service";
 import {notifications} from "@/utils/notification";
+import {aRoutes} from "@/services/api-routes";
 
 export default {
   notifications,
@@ -42,7 +43,7 @@ export default {
     },
     onOk() {
       this.onClose()
-      Https.deleteRequest(`product/${this.id}`).then((res) => {
+      Https.deleteRequest(`/${aRoutes.products}/${this.id}`).then((res) => {
             console.log(res)
             this.showSuccessMsg()
       }

@@ -33,6 +33,7 @@
 import Card from "@/components/elements/Card/Card";
 import * as Https from '@/services/http-service'
 import {notifications} from "@/utils/notification";
+import {aRoutes} from "@/services/api-routes";
 export default {
   name: "Posts",
   notifications,
@@ -62,7 +63,7 @@ export default {
     }
   },
   created(){
-    Https.getRequest("/products")
+    Https.getRequest(`/${aRoutes.products}`)
         .then(response => {
           let data = response.data;
           this.loading = false;

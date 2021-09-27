@@ -82,6 +82,7 @@
 import * as Https from "@/services/http-service";
 import {notifications} from "@/utils/notification";
 import {mapMutations} from 'vuex'
+import {aRoutes} from "@/services/api-routes";
 export default {
   name: 'newPost',
   notifications,
@@ -129,7 +130,7 @@ export default {
       "getProduct"
     ]),
     getCategories() {
-      Https.getRequest(`/products/categories`).then((res) => {
+      Https.getRequest(`/${aRoutes.categories}`).then((res) => {
         this.options = [...this.options, ...res.data]
       })
     },
@@ -151,7 +152,7 @@ export default {
       })
     },
     getData(id) {
-      Https.getRequest(`/products/${id}`)
+      Https.getRequest(`/${aRoutes.products}/${id}`)
           .then(response => {
             let data = response.data;
             this.setForm(data)
@@ -167,7 +168,7 @@ export default {
       if (this.validate()) {
         if (this.$route.params.id) {
           console.log(this.$route.params.id)
-          Https.putRequest(`/products/${this.$route.params.id}`, {
+          Https.putRequest(`/${aRoutes.products}/${this.$route.params.id}`, {
             ...this.form,
             price: parseInt(this.form.price)
           }).then(() => {
@@ -177,7 +178,7 @@ export default {
             this.showErrorMsg()
           })
         } else {
-          Https.postRequest(`/products`, {...this.form, price: parseInt(this.form.price)}).then(() => {
+          Https.postRequest(`/${aRoutes.products}`, {...this.form, price: parseInt(this.form.price)}).then(() => {
             this.$router.push(`/`)
             this.showSuccessMsg({message: 'Product successfully created !'})
           }).catch(() => {

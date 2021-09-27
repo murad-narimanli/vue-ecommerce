@@ -37,6 +37,7 @@
 import * as Https from "@/services/http-service";
 import Delete from "@/components/elements/DeleteButton/Delete";
 import Add from "@/components/elements/AddCartButton/Add";
+import {aRoutes} from "@/services/api-routes";
 
 export default {
   components:{
@@ -53,7 +54,7 @@ export default {
   },
   methods:{
     getData(id){
-      Https.getRequest( `/products/${id}`)
+      Https.getRequest( `/${aRoutes.products}/${id}`)
           .then(response => {
             let data = response.data;
             this.data = data;
