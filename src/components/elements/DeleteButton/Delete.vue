@@ -45,7 +45,7 @@ export default {
       this.onClose()
       Https.deleteRequest(`/${aRoutes.products}/${this.id}`).then((res) => {
             console.log(res)
-            this.showSuccessMsg()
+            this.showSuccessMsg({message: 'Deleted successfully'})
       }
       ).catch((err) => {
         console.log(err)

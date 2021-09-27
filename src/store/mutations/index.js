@@ -6,6 +6,10 @@ export  const  setProducts =  (state , arr) => {
     state.products = arr
 }
 
+export  const  setCategories =  (state , arr) => {
+    state.categories = arr
+}
+
 export  const  setCount =  (state , count) => {
     state.count = count
 }
