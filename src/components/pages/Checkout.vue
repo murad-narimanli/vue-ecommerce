@@ -135,6 +135,8 @@
 
 <script>
 
+import {mapMutations} from "vuex";
+
 export default {
   name: "Checkout",
   data() {
@@ -151,6 +153,9 @@ export default {
     this.setBasket(arr)
   },
   methods: {
+    ...mapMutations({
+      setCount:"setCount",
+    }),
     onClose(cart) {
      cart ?  cart['popover'] = false :  this.popoverShow = false
     },
@@ -177,7 +182,7 @@ export default {
       arr.length > 0 && arr.forEach((s)=>{numb += s[key]})
       this[key] = round ? this.roundUp(numb ,3)  : numb
       localStorage.setItem(key , round ? this.roundUp(numb ,3)  : numb);
-      !round ? this.$store.state.count = numb : null
+      !round ? this.setCount(numb) : null
     },
     getRightDataCommon(arr){
       this.getRightData(arr , 'count' , false)

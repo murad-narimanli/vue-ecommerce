@@ -6,6 +6,7 @@
 
 <script>
 import {notifications} from "@/utils/notification";
+import {mapMutations} from "vuex";
 
 export default {
   notifications,
@@ -17,6 +18,9 @@ export default {
     }
   },
   methods:{
+    ...mapMutations({
+      setCount:"setCount",
+    }),
     roundUp(num, precision) {
       precision = Math.pow(10, precision)
       return Math.ceil(num * precision) / precision
@@ -24,10 +28,9 @@ export default {
     addToCart(){
       let count = + localStorage.getItem('count')
       let price = + localStorage.getItem('price')
-      console.log(price)
       count ++
       localStorage.setItem('count', count)
-      this.$store.state.count = count
+      this.setCount(count)
       let arr = JSON.parse(localStorage.getItem('cart'))
       if (arr){
         let obj = {...this.post}
@@ -44,16 +47,12 @@ export default {
           obj['singlePrice'] = obj.price
           price = price + obj['price']
         }
-        console.log(price)
         localStorage.setItem('price', this.roundUp(price , 3))
         localStorage.setItem('cart', JSON.stringify(arr))
         this.showSuccessMsg({message: 'Added to cart !'})
       }
     }
-  },
-  created() {
-    console.log(this.post);
-  },
+  }
 }
 </script>
 

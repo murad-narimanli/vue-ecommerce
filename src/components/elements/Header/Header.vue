@@ -58,15 +58,21 @@
 
 
 <script>
+  import {mapGetters , mapMutations} from  'vuex'
   export default {
     name: "Header",
     computed:{
-      count(){
-        return this.$store.state.count
-      }
+      ...mapGetters({
+        count:'getCount'
+      }),
+    },
+    methods:{
+      ...mapMutations({
+        setCount:"setCount",
+      }),
     },
     created() {
-      this.$store.state.count = localStorage.getItem("count")
+      this.setCount(localStorage.getItem("count"))
     }
   }
 </script>

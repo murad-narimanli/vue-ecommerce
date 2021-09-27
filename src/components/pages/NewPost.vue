@@ -81,7 +81,7 @@
 <script>
 import * as Https from "@/services/http-service";
 import {notifications} from "@/utils/notification";
-
+import {mapMutations} from 'vuex'
 export default {
   name: 'newPost',
   notifications,
@@ -125,6 +125,9 @@ export default {
     },
   },
   methods: {
+    ...mapMutations([
+      "getProduct"
+    ]),
     getCategories() {
       Https.getRequest(`/products/categories`).then((res) => {
         this.options = [...this.options, ...res.data]
@@ -141,17 +144,23 @@ export default {
       })
       return this.res === 0
     },
+    setForm(data){
+      let arr = Object.keys(this.form)
+      arr.forEach((a) => {
+        this.form[a] = data[a]
+      })
+    },
     getData(id) {
       Https.getRequest(`/products/${id}`)
           .then(response => {
-            let arr = Object.keys(this.form)
             let data = response.data;
-            arr.forEach((a) => {
-              this.form[a] = data[a]
-            })
+            this.setForm(data)
             this.loading = false;
           })
-          .catch(() => this.$router.push(`/`))
+          .catch(() => {
+            this.getProduct(id)
+            this.setForm(this.$store.state.product)
+          })
     },
     onSubmit(event) {
       event.preventDefault()
@@ -190,6 +199,7 @@ export default {
     this.getCategories()
   },
   created() {
+    console.log(this.$store.state)
     if (this.$route.params.id) {
       this.getData(this.$route.params.id)
     } else {
